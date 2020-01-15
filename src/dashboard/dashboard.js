@@ -13,9 +13,7 @@ class Deshboard extends React.Component{
     <div className="col s12 m6"></div>
     <Notification/>
     <ProjectList projects={projects}/> 
-    {/* <ProjectList/>
-    <ProjectList/>
-    <ProjectList/> */}
+    
     </div>
     </div>
         )

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import {createProject} from '../actions/projectAction';
 
+import { connect } from 'react-redux';
  class Sign extends Component {
   state=({
      title:"",
@@ -12,7 +14,8 @@ import React, { Component } from 'react';
    handleSumbit=(e)=>{
      
     e.preventDefault()
-    console.log(this.state)
+    // console.log(this.state)
+    this.props.createProject(this.state)
 
    }
    handleChange=(e)=>{
@@ -48,14 +51,20 @@ import React, { Component } from 'react';
       <div className="waves-effect waves-light btn">Create</div>
       </div>
       </div>
-      
+       
     
   </form>
 </div>
+<createProject/> 
 </div>
+
     )}
 
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return { createProject:(project)=> dispatch(createProject(project))}
+}
 
-export default Sign;
+export default connect(mapDispatchToProps)(Sign);
+
