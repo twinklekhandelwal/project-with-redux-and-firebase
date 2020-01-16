@@ -3,6 +3,8 @@ import Notification from './notification';
 // import ProjectList from '../project/projectlist';
 import { connect } from 'react-redux';
 import ProjectList from '../project/projectlist';
+import {firestorConnect} from 'react-redux-firebase'
+import {compose} from 'redux'
 class Deshboard extends React.Component{
     render() {
         const { projects } = this.props;
@@ -22,7 +24,8 @@ class Deshboard extends React.Component{
 }
 
 const mapStateToProps = (state) => {
-    return { projects: state.project.projects}
+    return { projects: state.firestore.ordered.project}
 }
 
-export default connect(mapStateToProps)(Deshboard);
+export default compose( connect(mapStateToProps),
+firestorConnect([{collection:'project'}]))(Deshboard);
