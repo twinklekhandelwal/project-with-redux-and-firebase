@@ -13,11 +13,9 @@ import CreateProject from './project/createProject';
 function App() {
   return (
     <BrowserRouter>
-    
+   
     <Navbar/>
-    {/* <Deshboard/> */}
     
-     {/* <ProjectList/> */}
     
 
     
